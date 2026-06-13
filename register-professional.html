@@ -6,11 +6,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<meta name="description" content="Login to the AI Professional College student portal.">
+		<meta name="description" content="Apply to AI Professional College. Start your journey to becoming a certified professional.">
 		<meta name="keywords" content="AI Professional College, university, higher education, Ghana">
 		<meta name="author" content="AI Professional College">
 		<!-- SITE TITLE -->
-		<title>Student Portal | AI Professional College</title>			
+		<title>Apply Now | AI Professional College</title>			
 		<!-- Latest Bootstrap min CSS -->
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">		
 		<!-- Google Font -->
@@ -178,10 +178,10 @@
 			<div class="container">
 				<div class="col-lg-10 offset-lg-1 text-center">
 					<div class="section-top-title wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
-						<h1>Student Portal Login</h1>
+						<h1>Professional Application</h1>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li> / Login</li>
+							<li> / Professional Application</li>
 						</ul>
 					</div><!-- //.HERO-TEXT -->
 				</div><!-- END COL -->
@@ -190,43 +190,91 @@
 		<!-- END SECTION TOP -->
 		</div><!-- END  TOP HEADER CLASS -->
 
-	<!-- START LOGIN -->
-	<div class="login_register_area section-padding">
+	<!-- APPLY NOW -->
+	<section class="section-padding">
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-lg-6 col-sm-12 col-xs-12">
-					<div class="log_form">
-						<h2>Student Portal Login</h2>
-						<p>Access your course materials, grades, and academic records.</p>
-						<form>
-							<div class="form-group">
-								<label>Student ID or Email</label>
-								<input type="text" class="form-control" placeholder="Enter your Student ID">
-							</div>
-							<div class="form-group">
-								<label>Password</label>
-								<input type="password" class="form-control" placeholder="Password">
-							</div>
-							<div class="login_opt">
-								<div class="checkbox">
-									<label><input type="checkbox" value=""> Remember Me</label>
+				<div class="col-lg-6 col-sm-12 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+					<div class="ab_content" style="margin-bottom:30px;">
+						<h2>Professional Course Application</h2>
+						<p>Take the next step in your career with our specialized professional programs. Complete the short form below and our admissions team will contact you within 2-3 working days.</p>
+					</div>
+					<div class="abmv">
+						<i class="fa-solid fa-list-check"></i>
+						<h4>Entry Requirements</h4>
+						<p>Requirements vary by program. Basic literacy and a desire to learn are essential for most beginner professional certifications.</p>
+					</div>
+					<div class="abmv">
+						<i class="fa-solid fa-clock"></i>
+						<h4>Flexible Timetables</h4>
+						<p>We offer evening and weekend classes tailored for working professionals.</p>
+					</div>
+				</div>
+				<div class="col-lg-6 col-sm-12 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
+					<div class="contact_form" style="background:#f9f9f9; padding:40px; border-radius:12px;">
+						<h3 style="margin-bottom:25px;">Application Form</h3>
+						<form id="apply-form" onsubmit="event.preventDefault(); alert('Application submitted successfully! We will contact you soon.'); window.location.href='index.html';">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group" style="margin-bottom:20px;">
+										<input type="text" class="form-control" id="first-name" placeholder="First Name *" style="padding:12px;border-radius:6px;border:1px solid #ddd;" required>
+									</div>
 								</div>
-								<a href="#">Forgot Password?</a>
-							</div>
-							<div class="text-center">
-								<button type="submit" class="btn_two">Login</button>
-							</div>
-							<div class="create_acc">
-								<p>Don't have an account? <a href="contact.html">Contact Admissions</a></p>
+								<div class="col-md-6">
+									<div class="form-group" style="margin-bottom:20px;">
+										<input type="text" class="form-control" id="last-name" placeholder="Last Name *" style="padding:12px;border-radius:6px;border:1px solid #ddd;" required>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group" style="margin-bottom:20px;">
+										<input type="email" class="form-control" id="apply-email" placeholder="Email Address *" style="padding:12px;border-radius:6px;border:1px solid #ddd;" required>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group" style="margin-bottom:20px;">
+										<input type="tel" class="form-control" id="apply-phone" placeholder="Phone Number *" style="padding:12px;border-radius:6px;border:1px solid #ddd;" required>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group" style="margin-bottom:20px;">
+										<select class="form-control" id="program" style="padding:12px;border-radius:6px;border:1px solid #ddd; background:#fff;" required>
+											<option value="">-- Select Professional Program * --</option>
+											<optgroup label="Finance & Accounting">
+												<option>ACCA</option>
+												<option>CIMA</option>
+												<option>Computerized Accounting</option>
+											</optgroup>
+											<optgroup label="Business & Management">
+												<option>ABE</option>
+												<option>Database/Management</option>
+											</optgroup>
+											<optgroup label="Information Technology">
+												<option>COMPTIA (A+, N+, S+)</option>
+												<option>CISCO (CCNA, CCNP)</option>
+												<option>Cloud Infrastructure</option>
+												<option>Microsoft Certifications</option>
+												<option>MS Office</option>
+											</optgroup>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group" style="margin-bottom:25px;">
+										<textarea class="form-control" id="apply-message" rows="4" placeholder="Tell us about your background or ask any questions (optional)" style="padding:12px;border-radius:6px;border:1px solid #ddd;resize:vertical;"></textarea>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<button type="submit" class="btn_two" id="apply-submit" style="width:100%;padding:14px;cursor:pointer;">Submit Application <i class="fa-solid fa-paper-plane"></i></button>
+								</div>
 							</div>
 						</form>
 					</div>
-				</div><!-- END COL -->
-			</div><!-- END ROW -->
-		</div><!-- END CONTAINER -->
-	</div>
-	<!-- END LOGIN -->
-			
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- END APPLY NOW -->
+
 		<!-- START FOOTER -->
 	<div class="footer section-padding">
 		<div class="container">				
@@ -315,15 +363,15 @@
 	<!-- Latest jQuery -->
 		<script src="assets/js/jquery-1.12.4.min.js"></script>
 	<!-- Latest compiled and minified Bootstrap -->
-		<script src="assets/bootstrap/js/bootstrap.min.js"></script>			
-	<!-- owl-carousel min js  -->
-		<script src="assets/owlcarousel/js/owl.carousel.min.js"></script>
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>	
 	<!-- jquery-simple-mobilemenu.min -->
 		<script src="assets/js/jquery-simple-mobilemenu.js"></script>		
+	<!-- owl-carousel min js  -->
+		<script src="assets/owlcarousel/js/owl.carousel.min.js"></script>	
 	<!-- jquery.slicknav -->
 		<script src="assets/js/jquery.slicknav.js"></script>			
 	<!-- magnific-popup js -->               
-		<script src="assets/js/jquery.magnific-popup.min.js"></script>		
+		<script src="assets/js/jquery.magnific-popup.min.js"></script>	
 	<!-- jquery mixitup min js -->
 		<script src="assets/js/jquery.mixitup.js"></script>			
 	<!-- scrolltopcontrol js -->

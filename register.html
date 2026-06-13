@@ -193,91 +193,475 @@
 	<!-- APPLY NOW -->
 	<section class="section-padding">
 		<div class="container">
+            <style>
+                .step-indicator { display: flex; justify-content: space-between; margin-bottom: 30px; }
+                .step-indicator .step { flex: 1; text-align: center; padding-bottom: 10px; border-bottom: 3px solid #ddd; color: #999; font-weight: 600; font-size: 14px; position: relative; transition: 0.3s; }
+                .step-indicator .step.active { border-bottom-color: #f48024; color: #f48024; }
+                .step-indicator .step.completed { border-bottom-color: #002147; color: #002147; }
+                
+                .form-step { display: none; background: #f9f9f9; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+                .form-step.active { display: block; animation: fadeIn 0.5s; }
+                @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+                
+                .form-step h3 { margin-bottom: 25px; color: #002147; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+                .form-step h4 { margin-top: 20px; margin-bottom: 15px; font-size: 1.2rem; color: #333; }
+                
+                .form-control { padding: 12px; border-radius: 6px; border: 1px solid #ddd; margin-bottom: 20px; width: 100%; background: #fff; }
+                .form-group label { font-weight: 500; margin-bottom: 8px; display: block; color: #555; }
+                
+                .form-actions { display: flex; justify-content: space-between; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; }
+                .btn-secondary { background: #6c757d; color: #fff; padding: 12px 25px; border-radius: 6px; border: none; font-weight: 600; cursor: pointer; transition: 0.3s; }
+                .btn-secondary:hover { background: #5a6268; }
+                .btn-outline { background: transparent; color: #f48024; border: 2px solid #f48024; padding: 10px 25px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+                .btn-outline:hover { background: #f48024; color: #fff; }
+                
+                .checkbox-container { display: flex; align-items: flex-start; margin-bottom: 15px; }
+                .checkbox-container input { margin-top: 5px; margin-right: 10px; }
+                
+                @media (max-width: 768px) {
+                    .step-indicator { flex-direction: column; gap: 10px; }
+                    .step-indicator .step { border-bottom: none; border-left: 3px solid #ddd; padding-bottom: 0; padding-left: 10px; text-align: left; }
+                    .form-actions { flex-wrap: wrap; gap: 15px; }
+                }
+            </style>
+
 			<div class="row justify-content-center">
-				<div class="col-lg-6 col-sm-12 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
-					<div class="ab_content" style="margin-bottom:30px;">
+				<div class="col-lg-10 col-sm-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+					<div class="ab_content text-center" style="margin-bottom:40px;">
 						<h2>Apply to AI Professional College</h2>
-						<p>Complete the form below to begin your application. Our admissions team will review your details and contact you within 2-3 working days with next steps.</p>
+						<p>Complete the 7-step application below. You can save your draft and return later. Our admissions team will review your details upon submission.</p>
 					</div>
-					<div class="abmv">
-						<i class="fa-solid fa-list-check"></i>
-						<h4>Entry Requirements</h4>
-						<p>Five (5) credits (max 2 sittings), minimum C5 in English Language, WASSCE or GCE O-Level.</p>
-					</div>
-					<div class="abmv">
-						<i class="fa-solid fa-graduation-cap"></i>
-						<h4>Program Options</h4>
-						<p>Professional Programs, BSc Degree Programs (9 options), and MSc Professional Accountancy.</p>
-					</div>
-					<div class="abmv">
-						<i class="fa-solid fa-clock"></i>
-						<h4>Admissions Office Hours</h4>
-						<p>Monday – Friday: 8:00am – 5:00pm<br><a href="mailto:info@aiprofessionals.org">info@aiprofessionals.org</a></p>
-					</div>
-				</div>
-				<div class="col-lg-6 col-sm-12 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
-					<div class="contact_form" style="background:#f9f9f9; padding:40px; border-radius:12px;">
-						<h3 style="margin-bottom:25px;">Application Form</h3>
-						<form id="apply-form">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group" style="margin-bottom:20px;">
-										<input type="text" class="form-control" id="first-name" placeholder="First Name" style="padding:12px;border-radius:6px;border:1px solid #ddd;" required>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group" style="margin-bottom:20px;">
-										<input type="text" class="form-control" id="last-name" placeholder="Last Name" style="padding:12px;border-radius:6px;border:1px solid #ddd;" required>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group" style="margin-bottom:20px;">
-										<input type="email" class="form-control" id="apply-email" placeholder="Email Address" style="padding:12px;border-radius:6px;border:1px solid #ddd;" required>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group" style="margin-bottom:20px;">
-										<input type="tel" class="form-control" id="apply-phone" placeholder="Phone Number" style="padding:12px;border-radius:6px;border:1px solid #ddd;">
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group" style="margin-bottom:20px;">
-										<select class="form-control" id="program" style="padding:12px;border-radius:6px;border:1px solid #ddd; background:#fff;">
-											<option value="">-- Select Program of Interest --</option>
-											<optgroup label="Degree Programs">
-												<option>BSc Computer Science</option>
-												<option>BSc Accounting</option>
-												<option>BSc Business Administration</option>
-												<option>BSc Human Resource Management</option>
-												<option>BSc Marketing</option>
-												<option>BSc Public Administration</option>
-												<option>BSc Public Health</option>
-												<option>BSc Procurement &amp; Logistics</option>
-												<option>BSc Social Work</option>
-											</optgroup>
-											<optgroup label="Professional Programs">
-												<option>ACCA</option>
-												<option>CIMA</option>
-												<option>CAT / FIA</option>
-												<option>IT Certifications</option>
-											</optgroup>
-											<optgroup label="Masters">
-												<option>MSc Professional Accountancy</option>
-											</optgroup>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group" style="margin-bottom:25px;">
-										<textarea class="form-control" id="apply-message" rows="4" placeholder="Tell us about yourself and your academic background" style="padding:12px;border-radius:6px;border:1px solid #ddd;resize:vertical;"></textarea>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<button type="submit" class="btn_two" id="apply-submit" style="width:100%;padding:14px;cursor:pointer;">Submit Application <i class="fa-solid fa-paper-plane"></i></button>
-								</div>
-							</div>
-						</form>
-					</div>
+
+                    <!-- Step Indicators -->
+                    <div class="step-indicator" id="step-indicator">
+                        <div class="step active" id="ind-1">1. Personal</div>
+                        <div class="step" id="ind-2">2. Academic</div>
+                        <div class="step" id="ind-3">3. Course</div>
+                        <div class="step" id="ind-4">4. Documents</div>
+                        <div class="step" id="ind-5">5. Sponsor</div>
+                        <div class="step" id="ind-6">6. Emergency</div>
+                        <div class="step" id="ind-7">7. Declaration</div>
+                    </div>
+
+                    <form id="multi-step-form" onsubmit="event.preventDefault(); submitForm();">
+                        
+                        <!-- STEP 1: Personal Information -->
+                        <div class="form-step active" id="step-1">
+                            <h3>Step 1: Personal Information</h3>
+                            
+                            <h4>Applicant Details</h4>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group"><label>First Name *</label><input type="text" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group"><label>Middle Name</label><input type="text" class="form-control"></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group"><label>Last Name *</label><input type="text" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group"><label>Gender *</label>
+                                        <select class="form-control" required>
+                                            <option value="">Select Gender</option><option>Male</option><option>Female</option><option>Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group"><label>Date of Birth *</label><input type="date" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group"><label>Nationality *</label><input type="text" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Marital Status</label>
+                                        <select class="form-control">
+                                            <option value="">Select Status</option><option>Single</option><option>Married</option><option>Divorced</option><option>Widowed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>National ID / Passport Number</label><input type="text" class="form-control"></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group"><label>Passport Photo Upload *</label><input type="file" class="form-control" accept="image/*" required></div>
+                                </div>
+                            </div>
+
+                            <h4>Contact Information</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Email Address *</label><input type="email" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Phone Number *</label><input type="tel" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Alternative Phone Number</label><input type="tel" class="form-control"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Home Address *</label><input type="text" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group"><label>City *</label><input type="text" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group"><label>District/State *</label><input type="text" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group"><label>Country *</label><input type="text" class="form-control" required></div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions" style="justify-content: flex-end; gap: 15px;">
+                                <button type="button" class="btn-outline" onclick="saveDraft()">Save Draft</button>
+                                <button type="button" class="btn_two" onclick="nextStep(1)">Next <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 2: Academic Information -->
+                        <div class="form-step" id="step-2">
+                            <h3>Step 2: Academic Information</h3>
+                            
+                            <h4>Previous Education (Optional)</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Highest Qualification *</label>
+                                        <select class="form-control" required>
+                                            <option value="">Select Qualification</option><option>High School / WAEC</option><option>Diploma</option><option>Bachelor's Degree</option><option>Master's Degree</option><option>Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Institution Name *</label><input type="text" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group"><label>Country of Institution *</label><input type="text" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group"><label>Graduation Year *</label><input type="number" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group"><label>GPA / Grade</label><input type="text" class="form-control"></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group"><label>Academic Transcript Upload *</label><input type="file" class="form-control" required></div>
+                                </div>
+                            </div>
+
+                            <h4>Secondary Education</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>High School Name *</label><input type="text" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Graduation Year *</label><input type="number" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>WAEC/WASSCE Index Number</label><input type="text" class="form-control"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Certificate Upload *</label><input type="file" class="form-control" required></div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" onclick="prevStep(2)"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                                <div style="display:flex; gap:15px;">
+                                    <button type="button" class="btn-outline" onclick="saveDraft()">Save Draft</button>
+                                    <button type="button" class="btn_two" onclick="nextStep(2)">Next <i class="fa-solid fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 3: Course Selection -->
+                        <div class="form-step" id="step-3">
+                            <h3>Step 3: Course Selection</h3>
+                            
+                            <h4>Program Details</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Faculty/School *</label>
+                                        <select class="form-control" required>
+                                            <option value="">Select Faculty</option>
+                                            <option>Business & Finance</option>
+                                            <option>Computer Science & IT</option>
+                                            <option>Social Sciences</option>
+                                            <option>Health Sciences</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Department *</label><input type="text" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Program Type *</label>
+                                        <select class="form-control" required>
+                                            <option value="">Select Type</option>
+                                            <option>Certificate</option>
+                                            <option>Diploma</option>
+                                            <option>Undergraduate</option>
+                                            <option>Postgraduate</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Course/Program Applying For *</label>
+                                        <select class="form-control" required>
+                                            <option value="">-- Select Program --</option>
+                                            <optgroup label="Degree Programs">
+                                                <option>Accounting</option>
+                                                <option>Business Administration</option>
+                                                <option>Computer Science</option>
+                                                <option>Human Resouce Management</option>
+                                                <option>Social Work</option>
+                                                <option>Economics</option>
+                                                <option>Marketing</option>
+                                                <option>Information Technology</option>
+                                                <option>Logistics & Supply Chain Management</option>
+                                                <option>Public Health</option>
+                                                <option>Public Administration</option>
+                                                <option>State Registered Nurse (S.R.N)</option>
+                                                <option>Sustainable Development</option>
+                                            </optgroup>
+                                            <optgroup label="Professional Programs">
+                                                <option>ACCA</option>
+                                                <option>CIMA</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" onclick="prevStep(3)"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                                <div style="display:flex; gap:15px;">
+                                    <button type="button" class="btn-outline" onclick="saveDraft()">Save Draft</button>
+                                    <button type="button" class="btn_two" onclick="nextStep(3)">Next <i class="fa-solid fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 4: Supporting Documents -->
+                        <div class="form-step" id="step-4">
+                            <h3>Step 4: Supporting Documents</h3>
+                            
+                            <h4>Required Documents</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Passport Photograph *</label><input type="file" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Birth Certificate *</label><input type="file" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Academic Transcript *</label><input type="file" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Degree Certificate *</label><input type="file" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>WAEC/WASSCE Results *</label><input type="file" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Recommendation Letter</label><input type="file" class="form-control"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>CV/Resume</label><input type="file" class="form-control"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Other Supporting Documents (optional)</label><input type="file" class="form-control" multiple></div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" onclick="prevStep(4)"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                                <div style="display:flex; gap:15px;">
+                                    <button type="button" class="btn-outline" onclick="saveDraft()">Save Draft</button>
+                                    <button type="button" class="btn_two" onclick="nextStep(4)">Next <i class="fa-solid fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 5: Sponsor / Financial Information -->
+                        <div class="form-step" id="step-5">
+                            <h3>Step 5: Sponsor / Financial Information</h3>
+                            
+                            <h4>Funding Source</h4>
+                            <div class="row mb-4">
+                                <div class="col-md-12">
+                                    <div class="form-group" style="display:flex; gap:20px; flex-wrap:wrap;">
+                                        <label><input type="radio" name="funding" value="Self Sponsored" checked> Self Sponsored</label>
+                                        <label><input type="radio" name="funding" value="Parent/Guardian"> Parent/Guardian</label>
+                                        <label><input type="radio" name="funding" value="Scholarship"> Scholarship</label>
+                                        <label><input type="radio" name="funding" value="Employer Sponsored"> Employer Sponsored</label>
+                                        <label><input type="radio" name="funding" value="Other"> Other</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4>Sponsor Details</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Sponsor Name</label><input type="text" class="form-control"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Relationship</label><input type="text" class="form-control"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Phone Number</label><input type="tel" class="form-control"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Email Address</label><input type="email" class="form-control"></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group"><label>Address</label><input type="text" class="form-control"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" onclick="prevStep(5)"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                                <div style="display:flex; gap:15px;">
+                                    <button type="button" class="btn-outline" onclick="saveDraft()">Save Draft</button>
+                                    <button type="button" class="btn_two" onclick="nextStep(5)">Next <i class="fa-solid fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 6: Emergency Contact -->
+                        <div class="form-step" id="step-6">
+                            <h3>Step 6: Emergency Contact</h3>
+                            
+                            <h4>Emergency Contact Information</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Full Name *</label><input type="text" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Relationship *</label><input type="text" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Phone Number *</label><input type="tel" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Alternative Phone Number</label><input type="tel" class="form-control"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Email</label><input type="email" class="form-control"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Address *</label><input type="text" class="form-control" required></div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" onclick="prevStep(6)"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                                <div style="display:flex; gap:15px;">
+                                    <button type="button" class="btn-outline" onclick="saveDraft()">Save Draft</button>
+                                    <button type="button" class="btn_two" onclick="nextStep(6)">Next <i class="fa-solid fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 7: Declaration -->
+                        <div class="form-step" id="step-7">
+                            <h3>Step 7: Declaration</h3>
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="checkbox-container">
+                                        <input type="checkbox" id="dec1" required>
+                                        <label for="dec1">I certify that the information provided is true and accurate.</label>
+                                    </div>
+                                    <div class="checkbox-container">
+                                        <input type="checkbox" id="dec2" required>
+                                        <label for="dec2">I understand that providing false information may result in rejection of my application.</label>
+                                    </div>
+                                    <div class="checkbox-container">
+                                        <input type="checkbox" id="dec3" required>
+                                        <label for="dec3">I agree to the university's admission policies and regulations.</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4 style="margin-top:30px;">Digital Signature</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Full Name *</label><input type="text" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Date *</label><input type="date" class="form-control" required></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group"><label>Signature Upload / Draw Signature *</label><input type="file" class="form-control" accept="image/*" required></div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" onclick="prevStep(7)"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                                <button type="submit" class="btn_two">Submit Application <i class="fa-solid fa-check"></i></button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <script>
+                        function nextStep(current) {
+                            // Basic HTML5 validation
+                            const formStep = document.getElementById('step-' + current);
+                            const inputs = formStep.querySelectorAll('input, select, textarea');
+                            let valid = true;
+                            for (let i = 0; i < inputs.length; i++) {
+                                if (!inputs[i].checkValidity()) {
+                                    inputs[i].reportValidity();
+                                    valid = false;
+                                    break;
+                                }
+                            }
+                            if (!valid) return;
+
+                            document.getElementById('step-' + current).classList.remove('active');
+                            document.getElementById('ind-' + current).classList.remove('active');
+                            document.getElementById('ind-' + current).classList.add('completed');
+                            
+                            const next = current + 1;
+                            document.getElementById('step-' + next).classList.add('active');
+                            document.getElementById('ind-' + next).classList.add('active');
+                            window.scrollTo(0, document.querySelector('.step-indicator').offsetTop - 50);
+                        }
+
+                        function prevStep(current) {
+                            document.getElementById('step-' + current).classList.remove('active');
+                            document.getElementById('ind-' + current).classList.remove('active');
+                            
+                            const prev = current - 1;
+                            document.getElementById('step-' + prev).classList.add('active');
+                            document.getElementById('ind-' + prev).classList.add('active');
+                            document.getElementById('ind-' + prev).classList.remove('completed');
+                            window.scrollTo(0, document.querySelector('.step-indicator').offsetTop - 50);
+                        }
+
+                        function saveDraft() {
+                            alert('Application draft saved successfully. You can return later to complete it.');
+                        }
+
+                        function submitForm() {
+                            // Final validation
+                            const formStep = document.getElementById('step-7');
+                            const inputs = formStep.querySelectorAll('input');
+                            let valid = true;
+                            for (let i = 0; i < inputs.length; i++) {
+                                if (!inputs[i].checkValidity()) {
+                                    inputs[i].reportValidity();
+                                    valid = false;
+                                    break;
+                                }
+                            }
+                            if (!valid) return;
+
+                            alert('Thank you! Your application has been submitted successfully.');
+                            window.location.href = 'index.html';
+                        }
+                    </script>
 				</div>
 			</div>
 		</div>
@@ -360,7 +744,7 @@
 						<ul>
 							<li><a href="#">Terms of use</a></li>
 							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Cookie Policy</a></li>
+							<li><a href="https://www.instagram.com/jm_sandi?igsh=ZTFydGliMnBnY3ow&utm_source=qr">By JM Sandi</a></li>
 						</ul>
 					</div>
 				</div><!-- END COL -->

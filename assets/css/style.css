@@ -4472,7 +4472,8 @@ blockquote::before,
 * ----------------------------------------------------------------------------------------
 */
 .section-top {
-	background: linear-gradient(to left, rgb(228, 242, 254), rgb(255, 238, 254));
+	background: url("../images/pro%20images/1781279715938.jpg") no-repeat center center;
+	background-size: cover;
 	padding-top: 150px;
 	position: relative;
 	padding-bottom: 120px;
