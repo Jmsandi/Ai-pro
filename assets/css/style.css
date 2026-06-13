@@ -953,15 +953,14 @@ p.section-title-white {
 */
 .top_header_banner {
 	position: relative;
-	background: url("file:///Users/jmsandi/.gemini/antigravity-ide/brain/1ec7c72e-20ae-47b6-a5de-944376b4692c/hero_bg_modest_african_college_1781288923603.png");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
 }
 
 .home_bg {
 	height: 900px;
 	position: relative;
+	background: url("../images/pro%20images/home1.jpg");
+	background-size: cover;
+	background-position: center;
 }
 
 .home_bg2 {
@@ -6577,4 +6576,126 @@ blockquote::before,
 .single_footer p {
 	font-size: 14px;
 	line-height: 1.7;
+}
+
+/* =========================================================================
+   CUSTOM MOBILE RESPONSIVE TWEAKS 
+========================================================================= */
+
+@media only screen and (max-width: 991px) {
+    /* Hero Adjustments for Tablets and below */
+    .home_bg {
+        height: auto !important;
+        min-height: 60vh;
+        padding-bottom: 60px;
+    }
+    .home_content {
+        margin-top: 100px;
+        padding: 30px;
+    }
+    .home_content h1 {
+        font-size: 42px;
+        line-height: 50px;
+    }
+    .home_btn a.cta, .home_btn a.btn_two {
+        margin-bottom: 15px;
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    /* Hero Adjustments for Mobile */
+    .home_bg {
+        padding-bottom: 40px;
+    }
+    .home_content {
+        margin-top: 60px;
+        padding: 20px;
+    }
+    .home_content h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .home_me_img img {
+        margin-top: 40px;
+        max-height: 250px;
+    }
+    .home_ps {
+        bottom: 10%;
+        right: 0;
+    }
+    
+    /* Top Header Adjustments */
+    .single-top-contact {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .top_header_banner .row {
+        justify-content: center;
+    }
+    
+    /* Affiliations section */
+    .affiliations .col-6 {
+        margin-bottom: 30px;
+    }
+    
+    /* Logo scaling to prevent menu overlap */
+    .brand-logo-img {
+        max-height: 38px !important;
+    }
+    .brand-text {
+        font-size: 11px !important;
+        margin-left: 5px !important;
+    }
+    
+    /* Push the entire navbar to the very left edge on mobile */
+    #navigation {
+        padding: 8px 0 !important;
+    }
+    #navigation .container {
+        padding-left: 8px !important;
+        padding-right: 50px !important;
+    }
+    #navigation .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        flex-wrap: nowrap;
+    }
+    .col-20 {
+        width: auto !important;
+        padding-left: 0 !important;
+        flex-shrink: 0;
+    }
+    .site-logo {
+        padding-left: 0;
+        width: auto;
+    }
+    .brand-logo-img {
+        max-height: 36px !important;
+    }
+    .brand-text {
+        font-size: 10px !important;
+        margin-left: 6px !important;
+        white-space: nowrap;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    /* Very Small Screens */
+    .home_content h1 {
+        font-size: 26px;
+        line-height: 34px;
+    }
+}
+
+/* Global Logo Classes */
+.brand-logo-img {
+    max-height: 50px;
+}
+.brand-text {
+    font-size: 16px; 
+    font-weight: 700; 
+    color: #002147; 
+    margin-left: 10px; 
+    line-height: 1.2;
 }

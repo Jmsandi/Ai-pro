@@ -67,6 +67,7 @@
       }
     },
     showSlideSubMenu = function(e) {
+      e.preventDefault();
       $("." + smMenu.settings.wrapperClass).scrollTop(0);
       $(this).parent().addClass("active").siblings().removeClass("active");
     },
